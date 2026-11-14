@@ -1,0 +1,10 @@
+# 本地开发镜像：与原来的 dev server 行为一致，额外要求迁移基准显式传入。
+FROM node:20-alpine
+WORKDIR /srv/web
+COPY package.json ./
+RUN npm install
+COPY . .
+ARG VITE_SHARE_MIGRATION_BASELINE
+ENV VITE_SHARE_MIGRATION_BASELINE=${VITE_SHARE_MIGRATION_BASELINE}
+EXPOSE 5173
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

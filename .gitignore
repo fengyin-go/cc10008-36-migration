@@ -80,6 +80,9 @@ htmlcov/
 Thumbs.db
 desktop.ini
 
+# ===== 测试产物 =====
+frontend/tests/.tmp/
+
 # ===== 运行期本地文件 =====
 *.sqlite3
 *.db

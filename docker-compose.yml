@@ -1,5 +1,25 @@
 services:
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # 上线部署必须显式给出迁移基准；绝对日期与相对天数都按它换算。
+        VITE_SHARE_MIGRATION_BASELINE: ${VITE_SHARE_MIGRATION_BASELINE:?请在 .env 中设置 VITE_SHARE_MIGRATION_BASELINE}
+    environment:
+      VITE_SHARE_MIGRATION_BASELINE: ${VITE_SHARE_MIGRATION_BASELINE}
+    ports:
+      - "4173:4173"
+
+  # 本地开发仍走 dev server，便于热更新；同样需要迁移基准。
+  frontend-dev:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+      args:
+        VITE_SHARE_MIGRATION_BASELINE: ${VITE_SHARE_MIGRATION_BASELINE:?请在 .env 中设置 VITE_SHARE_MIGRATION_BASELINE}
+    environment:
+      VITE_SHARE_MIGRATION_BASELINE: ${VITE_SHARE_MIGRATION_BASELINE}
     ports:
       - "5173:5173"
+    profiles: ["dev"]

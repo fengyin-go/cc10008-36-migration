@@ -35,3 +35,14 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .error-text { color: #b42318; }
 .status-legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 10px; font-size: 12px; color: var(--muted); }
 .legend-item { background: #eef2f7; border-radius: 999px; padding: 2px 10px; }
+
+/* 数据分享迁移视图 */
+.share-migration-bar { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; }
+.share-migration-meta { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--muted); }
+.share-section-title { margin: 18px 0 8px; font-size: 14px; color: #334155; }
+.share-access-panel { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+.share-access-ok { flex-basis: 100%; margin: 4px 0 0; font-size: 12px; color: #067647; }
+.share-access-bad { flex-basis: 100%; margin: 4px 0 0; font-size: 12px; color: #b42318; }
+.share-notice { color: #067647; }
+.share-demo-row { background: #fafafa; color: #94a3b8; }
+.share-audit-error { background: #fff5f5; }
